@@ -33,16 +33,17 @@ public class PlayerMovement : MonoBehaviour
     // For all physics stuff
     void FixedUpdate()
     {
-        Vector3 movementVector = new Vector3();
+        Vector3 movementVector = Vector3.zero;
         if (Input.GetKey("w")) movementVector += Vector3.forward;
         if (Input.GetKey("s")) movementVector += Vector3.back;
         if (Input.GetKey("d")) movementVector += Vector3.right;
         if (Input.GetKey("a")) movementVector += Vector3.left;
 
-        if (Input.GetKey("space") && canJump) rb.AddForce(Vector3.up * jumpForce);
-        
+        movementVector = Camera.main.transform.rotation * movementVector;
+        movementVector.y = 0;
+
         rb.AddForce(movementVector.normalized * movementSpeed * Time.deltaTime );
 
-        
+        if (Input.GetKey("space") && canJump) rb.AddForce(Vector3.up * jumpForce);
     }
 }
