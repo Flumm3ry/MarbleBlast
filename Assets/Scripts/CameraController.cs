@@ -13,21 +13,15 @@ public class CameraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _offset = initialOffset;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = player.position + _offset * distance;
     }
 
     void LateUpdate()
     {
-        Quaternion camTurnAngle = Quaternion.AngleAxis(Input.GetAxis("Mouse X") * rotationSpeed, Vector3.up);
-
-        _offset = camTurnAngle * _offset;
-
-        transform.LookAt(player);
+        
     }
 }
