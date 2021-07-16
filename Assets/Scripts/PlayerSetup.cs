@@ -1,6 +1,5 @@
 using UnityEngine;
-using Mirror;
-using System.Linq;
+using MLAPI;
 
 public class PlayerSetup : NetworkBehaviour
 {
@@ -13,7 +12,7 @@ public class PlayerSetup : NetworkBehaviour
     {
         sceneCamera = Camera.main;
 
-        if (!isLocalPlayer)
+        if (!IsLocalPlayer)
         {
             foreach (var c in _componentsToDisable)
             {
