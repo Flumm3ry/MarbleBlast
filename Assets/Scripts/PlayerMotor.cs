@@ -30,6 +30,6 @@ public class PlayerMotor : MonoBehaviour
     }
 
     void PerformMovement() {
-        _rb.MovePosition(_rb.position + _force * Time.fixedDeltaTime);
+        _rb.AddForce(_force * Time.fixedDeltaTime);
     }
 }
