@@ -18,13 +18,6 @@ public class PlayerSetup : NetworkBehaviour
             {
                 c.enabled = false;
             }
-        } else {
-            sceneCamera?.gameObject.SetActive(false);
         }
-    }
-
-    void OnDisable()
-    {
-        sceneCamera?.gameObject.SetActive(true);
     }
 }

@@ -14,10 +14,13 @@ public class PlayerController : MonoBehaviour
 
     private PlayerMotor _motor;
 
+    private Camera _playerCamera;
+
     // Start is called before the first frame update
     void Start()
     {
         _motor = GetComponent<PlayerMotor>();
+        _playerCamera = GetComponentInChildren<Camera>() ?? Camera.main;
     }
 
     // Update is called once per frame
@@ -44,7 +47,14 @@ public class PlayerController : MonoBehaviour
     {
         var rawForce = context.ReadValue<Vector2>();
 
-        Vector3 movementVector = Camera.main.transform.rotation * new Vector3(rawForce.x, 0f, rawForce.y);
+        Vector3 movementVector = _playerCamera.transform.rotation * new Vector3(rawForce.x, 0f, rawForce.y);
         _motor.Move(movementVector.normalized * movementSpeed);
+    }
+
+    public void OnLook(InputAction.CallbackContext context)
+    {
+        var direction = context.ReadValue<Vector2>();
+
+        _motor.RotateCamera(direction);
     }
 }
