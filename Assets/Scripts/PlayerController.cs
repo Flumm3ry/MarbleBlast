@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     private float movementSpeed = 200f;
 
     [SerializeReference]
-    private float jumpForce = 50f;
+    private float jumpForce = 400f;
 
     private PlayerMotor _motor;
 
@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
+        if (canJump) _motor.Jump(jumpForce);
     }
 
     public void OnMove(InputAction.CallbackContext context)
