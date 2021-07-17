@@ -24,6 +24,11 @@ public class PlayerMotor : MonoBehaviour
         _rotation = rotation;
     }
 
+    public void Jump(float jumpForce)
+    {
+        _rb.AddForce(Vector3.up * jumpForce);
+    }
+
     void FixedUpdate()
     {
         PerformMovement();
