@@ -1082,11 +1082,6 @@ Transform:
   m_Children:
   - {fileID: 705507995}
   - {fileID: 1301789801}
-  - {fileID: 1933696909}
-  - {fileID: 808892737}
-  - {fileID: 747081042}
-  - {fileID: 1020242734}
-  - {fileID: 246325584}
   - {fileID: 9038709936070780766}
   m_Father: {fileID: 0}
   m_RootOrder: 1
