@@ -6,10 +6,10 @@ using System;
 public class PlayerController : MonoBehaviour
 {
     [SerializeReference]
-    private float movementSpeed = 200f;
+    private float movementSpeed = 800f;
 
     [SerializeReference]
-    private float jumpForce = 400f;
+    private float jumpForce = 200f;
 
     private bool canJump = false;
 
