@@ -3,7 +3,11 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {    
-    public GameObject[] players;
+    GameObject[] players;
+    
+    [SerializeReference]
+    private float distanceBeforeDeath = -10f;
+
     public float timeRemaining = 120f;
     void Start()
     {
@@ -23,7 +27,7 @@ public class GameManager : MonoBehaviour
 
     private void CheckOutOfBounds(GameObject player)
     {
-        if (player.transform.position.y < -10f)
+        if (player.transform.position.y < distanceBeforeDeath)
         {
             if (player.GetComponent<PlayerController>().Lives == 0){
                 player.GetComponent<PlayerController>().OnLose();
