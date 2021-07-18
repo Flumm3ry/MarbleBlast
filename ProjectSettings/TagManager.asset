@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Floor
   - Spawn Point
+  - UI
   layers:
   - Default
   - TransparentFX
