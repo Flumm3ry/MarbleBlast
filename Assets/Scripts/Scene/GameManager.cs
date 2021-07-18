@@ -4,6 +4,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {    
     public GameObject[] players;
+    public float timeRemaining = 120f;
     void Start()
     {
 
@@ -11,6 +12,8 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        timeRemaining -= Time.deltaTime;
+
         players = GameObject.FindGameObjectsWithTag("Player");
         foreach (var player in players)
         {
