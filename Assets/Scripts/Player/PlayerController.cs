@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
 
     private Camera _playerCamera;
 
+    private string _powerup;
+
     public int Lives { get; set; } = 3;
 
     void Start()
@@ -28,6 +30,12 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void AddPowerup(string powerup)
+    {
+        _powerup = powerup;
+        Debug.Log("Player picked up: " + powerup);
     }
 
     void OnCollisionEnter(Collision other) 
@@ -54,12 +62,6 @@ public class PlayerController : MonoBehaviour
 
         Vector3 movementVector = _playerCamera.transform.rotation * new Vector3(rawForce.x, 0f, rawForce.y);
         _motor.Move(movementVector.normalized * movementSpeed);
-    }
-
-    public void OnLook(InputAction.CallbackContext context)
-    {
-        var direction = context.ReadValue<Vector2>();
-        _motor.RotateCamera(direction);
     }
 
     public void OnLose(){
