@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     [SerializeReference]
     private float distanceBeforeDeath = -10f;
 
+    public float timeRemaining = 120f;
     void Start()
     {
 
@@ -15,6 +16,8 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        timeRemaining -= Time.deltaTime;
+
         players = GameObject.FindGameObjectsWithTag("Player");
         foreach (var player in players)
         {
