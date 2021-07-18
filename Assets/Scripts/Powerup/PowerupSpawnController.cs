@@ -35,7 +35,7 @@ public class PowerupSpawnController : MonoBehaviour
 
     void SpawnPowerup()
     {
-        GameObject powerup = Instantiate(powerups[new System.Random(DateTime.Now.Millisecond).Next(powerups.Length)], transform);
+        GameObject powerup = Instantiate(powerups[0], transform);
         powerup.GetComponent<Powerup>().OnDestroyed += SetNextPowerupTime;
     }
 

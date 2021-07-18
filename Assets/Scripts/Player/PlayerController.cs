@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
 
     private string _powerup;
 
+    public string Powerup { get { return _powerup; } }
+
     public int Lives { get; set; } = 3;
 
     void Start()
@@ -35,16 +37,15 @@ public class PlayerController : MonoBehaviour
     public void AddPowerup(string powerup)
     {
         _powerup = powerup;
-        Debug.Log("Player picked up: " + powerup);
     }
 
-    void OnCollisionEnter(Collision other) 
+    void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Floor"))
             canJump = true;
     }
- 
-    void OnCollisionExit(Collision other) 
+
+    void OnCollisionExit(Collision other)
     {
         if (other.gameObject.CompareTag("Floor"))
             canJump = false;
@@ -52,7 +53,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (canJump) 
+        if (canJump)
             _motor.Jump(jumpForce);
     }
 
@@ -64,7 +65,8 @@ public class PlayerController : MonoBehaviour
         _motor.Move(movementVector.normalized * movementSpeed);
     }
 
-    public void OnLose(){
+    public void OnLose()
+    {
         _playerCamera.transform.position = new Vector3(61.4f, 22.3f, 0f);
         _playerCamera.transform.LookAt(GameObject.FindWithTag("Floor").transform, Vector3.up);
     }

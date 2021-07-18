@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9036555347924893859}
-  - component: {fileID: 3351083409756647420}
+  - component: {fileID: 3973961471784774370}
   m_Layer: 0
   m_Name: PowerupSpawn
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3351083409756647420
+--- !u!114 &3973961471784774370
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,6 +41,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6931952862449618714}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 822b42e130a2dcd4da94eed1f0372012, type: 3}
+  m_Script: {fileID: 11500000, guid: 29345c6ca4b28404a9d063a40f98a7b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnDelay: 10
+  variance: 3
+  spawnOnStart: 0
+  powerups:
+  - {fileID: 9183570435576647956, guid: cb4fe62a3fbd5b8468e7abaeb39d45d7, type: 3}
